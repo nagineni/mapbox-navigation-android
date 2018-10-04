@@ -208,9 +208,8 @@ public class InstructionView extends RelativeLayout implements FeedbackBottomShe
         }
       }
     });
-    subscribeAlertView();
     initializeButtonListeners();
-    showButtons();
+    subscribeAlertView();
   }
 
   /**
@@ -532,11 +531,6 @@ public class InstructionView extends RelativeLayout implements FeedbackBottomShe
         navigationViewModel.setMuted(soundButton.toggleMute());
       }
     });
-  }
-
-  private void showButtons() {
-    feedbackButton.show();
-    soundButton.show();
   }
 
   private void initializeStepListClickListener() {
