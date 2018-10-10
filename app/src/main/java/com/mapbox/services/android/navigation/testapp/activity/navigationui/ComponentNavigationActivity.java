@@ -265,7 +265,6 @@ public class ComponentNavigationActivity extends AppCompatActivity implements On
   public void onPause() {
     super.onPause();
     mapView.onPause();
-    locationEngine.deactivate();
   }
 
   @Override
