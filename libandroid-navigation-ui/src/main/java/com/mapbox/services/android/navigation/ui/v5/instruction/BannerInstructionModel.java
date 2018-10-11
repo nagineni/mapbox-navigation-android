@@ -11,15 +11,16 @@ public class BannerInstructionModel extends InstructionModel {
     super(distanceFormatter, progress);
     primaryBannerText = instructions.primary();
     secondaryBannerText = instructions.secondary();
+    subBannerText = instructions.sub();
   }
 
   @Override
-  String getManeuverType() {
+  String retrievePrimaryManeuverType() {
     return primaryBannerText.type();
   }
 
   @Override
-  String getManeuverModifier() {
+  String retrieveSecondaryManeuverModifier() {
     return primaryBannerText.modifier();
   }
 }

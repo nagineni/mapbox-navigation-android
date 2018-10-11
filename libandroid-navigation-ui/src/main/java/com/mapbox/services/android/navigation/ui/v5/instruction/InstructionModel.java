@@ -13,7 +13,7 @@ public class InstructionModel {
 
   BannerText primaryBannerText;
   BannerText secondaryBannerText;
-  private BannerText thenBannerText;
+  BannerText subBannerText;
   private Float roundaboutAngle = null;
   private InstructionStepResources stepResources;
   private RouteProgress progress;
@@ -25,36 +25,36 @@ public class InstructionModel {
     buildInstructionModel(distanceFormatter, progress);
   }
 
-  BannerText getPrimaryBannerText() {
+  BannerText retrievePrimaryBannerText() {
     return primaryBannerText;
   }
 
-  BannerText getSecondaryBannerText() {
+  BannerText retrieveSecondaryBannerText() {
     return secondaryBannerText;
   }
 
-  BannerText getThenBannerText() {
-    return thenBannerText;
+  BannerText retrieveSubBannerText() {
+    return subBannerText;
   }
 
   @Nullable
-  Float getRoundaboutAngle() {
+  Float retrieveRoundaboutAngle() {
     return roundaboutAngle;
   }
 
-  InstructionStepResources getStepResources() {
+  InstructionStepResources retrieveStepResources() {
     return stepResources;
   }
 
-  String getManeuverType() {
+  String retrievePrimaryManeuverType() {
     return stepResources.getManeuverViewType();
   }
 
-  String getManeuverModifier() {
+  String retrieveSecondaryManeuverModifier() {
     return stepResources.getManeuverViewModifier();
   }
 
-  RouteProgress getProgress() {
+  RouteProgress retrieveProgress() {
     return progress;
   }
 
@@ -73,7 +73,7 @@ public class InstructionModel {
     secondaryBannerText = routeUtils.findCurrentBannerText(currentStep, stepDistanceRemaining, false);
 
     if (upComingStep != null) {
-      thenBannerText = routeUtils.findCurrentBannerText(upComingStep, upComingStep.distance(), true);
+      subBannerText = routeUtils.findCurrentBannerText(upComingStep, upComingStep.distance(), true);
     }
 
     if (primaryBannerText != null && primaryBannerText.degrees() != null) {
